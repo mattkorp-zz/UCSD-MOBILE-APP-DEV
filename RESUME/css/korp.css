@@ -1,0 +1,98 @@
+
+@font-face
+{
+  font-family: VT220;
+  src: url('../font/Glass_TTY_VT220.ttf')
+}
+
+/* HEADER specs */
+/* fix header to top of page */
+header {
+  background: #333;
+  position:fixed!important;
+  float: left;
+  margin: 0;
+  width: 100%;
+}
+
+/* Add styling to name */
+.logo {
+  font: bold 20px VT220, monospace;
+  color: lime;
+  text-align: left;
+  margin-left: 10px;
+  font-weight: bold;
+  -webkit-animation: fadein 10s;
+     -moz-animation: fadein 10s;
+       -o-animation: fadein 10s;
+          animation: fadein 10s;
+}
+
+/* BODY specs - Resume */
+/* box that contains resume content. Set column within */
+#content-box {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.lt-column {
+  float: left;
+  margin: 0;
+  width: 60%;
+}
+
+.rt-column {
+  float: left;
+  margin: 0;
+  width: 40%
+}
+
+/* style resume content in code tags */
+.history {
+  font: bold 1.4vw VT220, monospace;
+  color: lime;
+  border-right: .1em solid;
+  margin-left: 1em;
+  white-space: pre-wrap;
+}
+
+/* FOOTER specs */
+footer {
+  bottom:0px;
+  height:50px;
+  width:100%;
+  position:fixed!important;
+  text-align:center;
+  visibility:visible;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background: #333;
+}
+
+/* Fade Icons in over 10sec */
+@-webkit-keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+   @-moz-keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+     @-o-keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+        
+.footer-img {
+  -webkit-animation: fadein 10s;
+     -moz-animation: fadein 10s;
+       -o-animation: fadein 10s;
+          animation: fadein 10s;
+}
+
+/* Set icon style */
+.foot-icons {
+  transition: background-color 0.5s ease;
+  background-color: #666;
+  height: 40px;
+  width: 40px;
+  margin: 5px;
+  border-radius:100%;
+}
+
+.foot-icons:hover {
+  background-color: #BBB;
+}
+
