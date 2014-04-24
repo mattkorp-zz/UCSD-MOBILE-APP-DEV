@@ -28,10 +28,81 @@
 		</div>
         <script src="js/jquery-2.0.3.min.js"></script>
         <script>
+
+        	// Housekeeping: removes coins from DOM
+        	function removePreviousAnswer() {
+        		$("#answer > p").remove();
+        		$("#quarters").empty();
+        		$("#dimes").empty();
+        		$("#nickels").empty();
+        		$("#pennies").empty();
+        	}
+        	
+        	// Converts cents to whatever coin type wanted.
+        	// This and leftover change is returned in an array.
+        	function changeConversion(numCents, coinType) {
+        		var newCoin = Math.floor( numCents / coinType );
+        		numCents = numCents % coinType;
+
+        		return [newCoin, numCents];
+        	};
+
+        	// Add images for coins to the DOM
+        	function printChange(coins) {
+
+        		var $quarterDiv = $("#quarters");
+        		for (var i = 0; i < coins["quarters"]; i++) {
+        			$quarterDiv.append("<img src=img/quarter.png>");
+        		}
+        		var $dimeDiv = $("#dimes");
+        		for (var i = 0; i < coins["dimes"]; i++) {
+        			$dimeDiv.append("<img src=img/dime.png>");
+        		}
+        		var $nickelDiv = $("#nickels");
+        		for (var i = 0; i < coins["nickels"]; i++) {
+        			$nickelDiv.append("<img src=img/nickel.png>");
+        		}
+        		var $pennieDiv = $("#pennies");
+        		for (var i = 0; i < coins["pennies"]; i++) {
+        			$pennieDiv.append("<img src=img/pennie.png>");
+        		}        		
+        	}
+
+        	// This is called when "Solve" button is clicked.
+        	// Calls necessary functions to convert change and display
+        	function makeChange() {
+
+        		var quarter = 25,
+        			dime    = 10,
+        			nickel  = 05;
+
+        		// cleanup
+        		removePreviousAnswer();
+
+        		// get cents to convert
+        		var numCents = parseInt( $( "input[type=number]").val(), 10);
+
+        		// make "coins" object and fill
+        		var coins = {},
+        			coinAndLeftover = [];
+        		coinAndLeftover = changeConversion(numCents, quarter);
+        		coins["quarters"] = coinAndLeftover[0];
+        		coinAndLeftover = changeConversion(coinAndLeftover[1], dime);
+        		coins["dimes"] = coinAndLeftover[0];
+        		coinAndLeftover = changeConversion(coinAndLeftover[1], nickel);
+        		coins["nickels"]  = coinAndLeftover[0];
+        		coins["pennies"]  = coinAndLeftover[1];
+
+        		// Display answer
+        		$("#answer").prepend( "<p>" + numCents + " Cents = </p>");
+        		printChange(coins);
+
+        	};
+
 			$( document ).ready(function() {
   				console.log("Handler for .ready() called.");
 				//Add the event listener for the solve button here
-			
+				$( "input[name=Solve]" ).click( makeChange );
 			});
 		</script>
 

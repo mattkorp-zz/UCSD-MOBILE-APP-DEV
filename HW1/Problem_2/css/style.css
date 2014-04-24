@@ -4,3 +4,9 @@ h1 {border-bottom: 1px solid #ccc;}
 	margin-top: 20px;
 	border-top: 1px solid #ccc;
 }
+
+img {
+	height: 70px;
+	width: 70px;
+	margin: 3px;
+}
