@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="utf-8">
+        <title>Problem #2</title>
+        <link rel="stylesheet" href="css/style.css">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+	<!--
+	Write a JavaScript function that accepts a number of U.S. cents and returns an array containing, respectively, the smallest number of U.S. quarters, dimes, nickels, and pennies that equal the given amount.
+
+	Make sure to handle incorrect inputs
+
+	-->
+    <body>
+		<h1>Problem #2:</h1>
+        
+		<form>
+			<input type="number" placeholder="Enter your cents" min="0" />
+			<input type="button" name="Solve" value="Solve" />
+		</form>
+		<div id="answer">
+			<div id="quarters"></div>
+			<div id="dimes"></div>
+			<div id="nickels"></div>
+			<div id="pennies"></div>
+		</div>
+        <script src="js/jquery-2.0.3.min.js"></script>
+        <script>
+			$( document ).ready(function() {
+  				console.log("Handler for .ready() called.");
+				//Add the event listener for the solve button here
+			
+			});
+		</script>
+
+        
+    </body>
+</html>

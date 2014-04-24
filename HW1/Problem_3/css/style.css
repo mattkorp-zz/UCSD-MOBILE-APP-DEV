@@ -1,0 +1,17 @@
+h1 {border-bottom: 1px solid #ccc;}
+
+#validISBN, #invalidISBN {
+	margin-top: 20px;
+	padding: 20px;
+	border-top: 1px solid #ccc;
+	font-weight:bold;
+	display:none;
+}
+
+#validISBN {
+	background-color:#0f0;
+}
+
+#invalidISBN {
+	background-color:#f00;
+}

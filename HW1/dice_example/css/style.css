@@ -1,0 +1,14 @@
+a {
+	text-decoration:none;
+	background-color:#00b1ff;
+	border-radius: 5px;	
+	padding: 20px;
+	color: #fff;
+	display:block;
+	text-align:center;
+	font-size: 1.5rem;
+}
+
+#die {
+	margin: 20px auto;	
+}

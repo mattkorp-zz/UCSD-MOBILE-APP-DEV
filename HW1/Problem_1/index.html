@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Problem #1</title>
+		<link rel="stylesheet" href="css/style.css">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+	<!--
+	Implement a function createDeck which returns a JSON object that represents all the cards in a deck of cards. The object return should be an array with 52 object, each one of which should have a suit and a value property. The suits are: hearts, diamonds, clubs, spades. The values are, Ace, 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack, Queen, King.
+
+Then add the ability to deal out 1-4 hands of 5 card each. Display the hands on the web page. 
+
+Bonus: Use actual graphics for the cards
+
+	-->
+    <body>
+		<h1>Problem #1</h1>
+		<h2>Number of Players:</h2>
+		<form>
+			<input type="radio" name="playerChoice" id="playerChoice-1" value="1" />
+     		<label for="playerChoice-1">1</label>
+			<input type="radio" name="playerChoice" id="playerChoice-2" value="2" />
+     		<label for="playerChoice-2">2</label>
+			<input type="radio" name="playerChoice" id="playerChoice-3" value="3" />
+     		<label for="playerChoice-3">3</label>
+			<input type="radio" name="playerChoice" id="playerChoice-4" value="4" checked="checked" />
+     		<label for="playerChoice-4">4</label>
+		</form>
+		<a href="#">Deal</a>
+		<div id="theDealtHands">
+		
+		</div>
+       
+        <script src="js/jquery-2.0.3.min.js"></script>
+        <script>
+
+        	function createDeck() {
+        		// Create or shuffle a new deck of cards
+        		var suit = [ "Hearts", "Clubs", "Diamonds", "Spades" ];
+        		var rank = [ "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace" ];
+
+        		// Make key/value object for each card and add to deck
+        		var newDeck = [],
+        			imageCount = 1;
+        		for (var i = 0; i < suit.length; i++) {
+        			for (var j = 0; j < rank.length; j++) {
+    					var card = {};
+        				card["suit"] = suit[i]
+        				card["rank"] = rank[j];
+        				card["image"] = imageCount.toString() + ".png";
+        				newDeck.push(card);
+        				imageCount++;
+        			};
+        		};
+
+        		// Transform object into JSON and return
+        		// Why are we changing to JSON?
+        		return JSON.stringify(newDeck);
+        	}
+
+        	function shuffle(array) {
+        		var counter = array.length,
+        			temp,
+        			index;
+
+        		/* loop through each array element starting
+        		at the end and swap with random array element */
+        		while (counter > 0) {
+        			// Pick random index
+        			index = Math.floor( Math.random() * counter );
+
+        			counter--;
+        			// swap random element with the last
+        			temp = array[counter];
+        			array[counter] = array[index];
+        			array[index] = temp;
+        		}
+
+        		return array;
+        	}
+
+        	function dealHands() {
+        		var numCardsInHand = 5;
+
+        		// Get a new deck of cards
+        		var deckOfCards = JSON.parse( createDeck() );
+
+        		// Shuffle cards
+        		var shuffledDeck = shuffle(deckOfCards);
+
+        		// Find out how many players there are
+        		var numHands = $("form input[name=playerChoice]:checked").attr("value");
+				
+				$("#theDealtHands").empty();
+				// Deal 5 cards for each player
+				for (var i = 0; i < numHands; i++) {
+                    
+					// Create a space for a new player
+					var $playerDiv = $("#theDealtHands");
+					$playerDiv.append( "<p>Player " + (i+1).toString() + "</p>");
+
+					for (var j = 0; j < numCardsInHand; j++) {
+                        // Deal card
+						var cardDealt = shuffledDeck.pop();
+						$playerDiv.append( "<img src=\"img/" + cardDealt["image"] + "\"></a>");
+					}
+
+				}
+        	}
+
+			$( document ).ready(function() {
+  				console.log("Handler for .ready() called.");
+				//Add the event listener for the deal button here
+				$("a").click(dealHands);
+
+			});
+		</script>
+
+        
+    </body>
+</html>

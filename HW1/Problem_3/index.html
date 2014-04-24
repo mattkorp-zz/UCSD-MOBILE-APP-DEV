@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="utf-8">
+        <title>Problem #3</title>
+        <link rel="stylesheet" href="css/style.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+	<!--
+	Implement a function called chechISBN(id) which takes as input a string (id) and returns true if and only if the id is a valid ISBN number. Refer to Wikipedia (http://en.wikipedia.org/wiki/International_Standard_Book_Number) to get the equation for verifying the check digit in an ISBN number.
+
+Make sure you provide feedback for valid and invalid ISBNs. 
+
+
+	-->
+    <body>
+
+        <h1>Problem #3:</h1>
+        
+		<form>
+			<input type="number" placeholder="Enter your ISBN-10" min="0" />
+			<input type="button" name="Validate" value="Validate" />
+		</form>
+		
+		<div id="validISBN">
+			Valid ISBN
+		</div>
+		<div id="invalidISBN">
+			Invalid ISBN
+		</div>
+        <script src="js/jquery-2.0.3.min.js"></script>
+        <script>
+			$( document ).ready(function() {
+  				console.log("Handler for .ready() called.");
+				//Add the event listener for the validate button here
+				//Look at toggling the CSS display property based on the result
+			});
+		</script>
+
+        
+    </body>
+</html>
