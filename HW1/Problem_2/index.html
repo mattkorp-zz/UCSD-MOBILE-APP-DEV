@@ -85,11 +85,11 @@
         		// make "coins" object and fill
         		var coins = {},
         			coinAndLeftover = [];
-        		coinAndLeftover = changeConversion(numCents, quarter);
+        		coinAndLeftover   = changeConversion(numCents, quarter);
         		coins["quarters"] = coinAndLeftover[0];
-        		coinAndLeftover = changeConversion(coinAndLeftover[1], dime);
-        		coins["dimes"] = coinAndLeftover[0];
-        		coinAndLeftover = changeConversion(coinAndLeftover[1], nickel);
+        		coinAndLeftover   = changeConversion(coinAndLeftover[1], dime);
+        		coins["dimes"]    = coinAndLeftover[0];
+        		coinAndLeftover   = changeConversion(coinAndLeftover[1], nickel);
         		coins["nickels"]  = coinAndLeftover[0];
         		coins["pennies"]  = coinAndLeftover[1];
 
