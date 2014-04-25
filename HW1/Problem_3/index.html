@@ -18,22 +18,93 @@ Make sure you provide feedback for valid and invalid ISBNs.
         <h1>Problem #3:</h1>
         
 		<form>
-			<input type="number" placeholder="Enter your ISBN-10" min="0" />
+			<input type="text" placeholder="Enter your ISBN-10" min="0" />
 			<input type="button" name="Validate" value="Validate" />
 		</form>
 		
 		<div id="validISBN">
-			Valid ISBN
+			<p class="valid">Valid ISBN</p>
+		</div>
+		<div id="bookInfo">
+			
 		</div>
 		<div id="invalidISBN">
-			Invalid ISBN
+			<p class="invalid">Invalid ISBN</p>
 		</div>
         <script src="js/jquery-2.0.3.min.js"></script>
         <script>
+        	// Do necessary math to see if ISBN is valid
+        	function checkISBN( isbnToCheck ) {
+
+        		var checksum = 0,
+        			isbnDigit = 0;
+
+				var isbnToCheckLength = isbnToCheck.length;
+
+				// If number is correct amount of digits then continue
+        		if (isbnToCheckLength !== 10 && isbnToCheckLength !== 13) {
+        			return false;
+        		} else {
+        			// Calculate checksum
+        			for (var i = 0; i < isbnToCheckLength; i++) {
+        				// If last digit is 'x' or 'X' then == 10
+        				if (i === isbnToCheckLength && (isbnToCheck[i] === 'X' || isbnToCheck[i] === 'x')) {
+        					isbnDigit = 10;
+        				} else {
+        					// otherwise make it a number
+        					isbnDigit = parseInt(isbnToCheck[i], 10);
+        				}
+        				// 10 digit
+        				if (isbnToCheckLength === 10) {
+	        				checksum += isbnDigit * (i + 1);
+    					} else {
+    						// 13 digit
+    						if (i % 2 == 0) {
+    							checksum += isbnDigit;
+    						} else {
+    							checksum += isbnDigit * 3;
+    						}
+    					}
+        			}
+
+        			// If check digit checks out, its good
+        			if (!(checksum % 11) && isbnToCheckLength === 10) {
+        				return true;
+        			} else if (!(checksum % 10) && isbnToCheckLength === 13) {
+        				return true;
+        			} else {
+        				// or not
+        				return false;
+        			}
+        		}
+
+        	}
+
+        	// Get user input and find out if its a real ISBN
+        	function validateISBN() {
+        		// Hide previous validation result
+        		$("#validISBN").hide();
+        		$("#invalidISBN").hide();
+
+        		// Grab user input from DOM
+        		var isbnToCheck = $("input[type=text]").val();
+
+        		// If input is valid ISBN or not, then acknowledge
+        		if ( checkISBN(isbnToCheck) ) {
+					$("#validISBN").show();
+        		} else {
+        			$("#invalidISBN").show();
+        		}
+
+
+        	}
+
 			$( document ).ready(function() {
   				console.log("Handler for .ready() called.");
 				//Add the event listener for the validate button here
 				//Look at toggling the CSS display property based on the result
+				$("input[name=Validate]").click(validateISBN);
+
 			});
 		</script>
 
