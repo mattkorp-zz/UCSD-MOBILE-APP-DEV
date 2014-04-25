@@ -85,6 +85,7 @@ Make sure you provide feedback for valid and invalid ISBNs.
         		// Hide previous validation result
         		$("#validISBN").hide();
         		$("#invalidISBN").hide();
+        		$("#bookInfo").empty();
 
         		// Grab user input from DOM
         		var isbnToCheck = $("input[type=text]").val();
@@ -92,6 +93,9 @@ Make sure you provide feedback for valid and invalid ISBNs.
         		// If input is valid ISBN or not, then acknowledge
         		if ( checkISBN(isbnToCheck) ) {
 					$("#validISBN").show();
+					// add isbndb link
+					var dbLink = 'http://isbndb.com/api/v2/json/B9LW7989/book/' + isbnToCheck;
+					$("#bookInfo").append("<a href=" + dbLink + ">Link</a>");
         		} else {
         			$("#invalidISBN").show();
         		}
