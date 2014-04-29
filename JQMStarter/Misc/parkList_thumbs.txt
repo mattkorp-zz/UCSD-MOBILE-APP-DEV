@@ -1,0 +1,22 @@
+<li><a href="#"><img src="imgs/thumbs/arches.jpg">Arches</a></li>
+<li><a href="#"><img src="imgs/thumbs/brycecanyon.jpg">Bryce Canyon</a></li>
+<li><a href="#"><img src="imgs/thumbs/carlsbadcavern.jpg">Carlsbad Caverns</a></li>
+<li><a href="#"><img src="imgs/thumbs/craterlake.jpg">Crater Lake</a></li>
+<li><a href="#"><img src="imgs/thumbs/deathvalley.jpg">Death Valley</a></li>
+<li><a href="#"><img src="imgs/thumbs/denali.jpg">Denali</a></li>
+<li><a href="#"><img src="imgs/thumbs/glacier.jpg">Glacier Bay</a></li>
+<li><a href="#"><img src="imgs/thumbs/grandcanyon.jpg">Grand Canyon</a></li>
+<li><a href="#"><img src="imgs/thumbs/grandteton.jpg">Grand Teton</a></li>
+<li><a href="#"><img src="imgs/thumbs/hawaiivolcanoes.jpg">Hawaii Volcanoes</a></li>
+<li><a href="#"><img src="imgs/thumbs/joshuatree.jpg">Joshua Tree</a></li>
+<li><a href="#"><img src="imgs/thumbs/kingscanyon.jpg">Kings Canyon</a></li>
+<li><a href="#"><img src="imgs/thumbs/mammothcave.jpg">Mammoth Cave</a></li>
+<li><a href="#"><img src="imgs/thumbs/mesaverde.jpg">Mesa Verde</a></li>
+<li><a href="#"><img src="imgs/thumbs/mountrainier.jpg">Mount Rainier</a></li>
+<li><a href="#"><img src="imgs/thumbs/petrifiedforest.jpg">Petrified Forest</a></li>
+<li><a href="#"><img src="imgs/thumbs/pinnacles.jpg">Pinnacles</a></li>
+<li><a href="#"><img src="imgs/thumbs/redwood.jpg">Redwood</a></li>
+<li><a href="#"><img src="imgs/thumbs/sequoia.jpg">Sequoia</a></li>
+<li><a href="#"><img src="imgs/thumbs/yellowstone.jpg">Yellowstone</a></li>
+<li><a href="#"><img src="imgs/thumbs/yosemite.jpg">Yosemite</a></li>
+<li><a href="#"><img src="imgs/thumbs/zion.jpg">Zion</a></li>
