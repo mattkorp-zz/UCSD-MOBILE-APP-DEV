@@ -1,0 +1,25 @@
+
+.ui-icon-album { 
+	background: url("../img/261-album-closed.png") 50% 50% no-repeat;
+	background-size: 20px 20px;
+	width: 30px;
+	height: 25px;
+	box-shadow: none;
+	margin: -2px !important;
+  	margin-left:-15px !important;
+}
+
+.ui-icon-ticket { 
+	background: url("../img/299-ticket.png") 50% 50% no-repeat;
+	background-size: 30px 20px;
+	width: 30px;
+	height: 25px;
+	box-shadow: none;
+	margin: -2px !important;
+  	margin-left: -15px !important;
+}
+
+.album-info-img {
+	width: 250px;
+	height: 250px;
+}
