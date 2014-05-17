@@ -1,4 +1,19 @@
 
+/* Add different font for headers */
+@font-face {
+	font-family: 'DroidSerif';
+	src: url('../fonts/DroidSerif.ttf') format('truetype');
+	
+}
+
+/* Cannot change the size of the font. Is jQuery overriding? */
+h2, a {
+	font-family: 'DroidSerif', Fallback, sans-serif;
+	/*font-size: 20px;*/
+}
+
+/* Icon specs for tabs */
+/* Tried separating out the common attributes by adding another class but does not work */
 .ui-icon-album { 
 	background: url("../img/261-album-closed.png") 50% 50% no-repeat;
 	background-size: 20px 20px;
@@ -19,7 +34,13 @@
   	margin-left: -15px !important;
 }
 
+/* Detail page */
 .album-info-img {
 	width: 250px;
 	height: 250px;
 }
+
+/* Not allowing me to override */
+/*.ul-li-divider {
+	background-color: #fff;
+}*/
