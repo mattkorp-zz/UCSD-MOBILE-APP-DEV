@@ -6,6 +6,13 @@
 /Users/MTK/Code/UCSD-MOBILE-APP-DEV/final_project/wanderlost/platforms/android/ant-build/classes/com/phonegap/helloworld/R$string.class \
 /Users/MTK/Code/UCSD-MOBILE-APP-DEV/final_project/wanderlost/platforms/android/ant-build/classes/com/phonegap/helloworld/R$xml.class \
 /Users/MTK/Code/UCSD-MOBILE-APP-DEV/final_project/wanderlost/platforms/android/ant-build/classes/com/phonegap/helloworld/R.class \
+/Users/MTK/Code/UCSD-MOBILE-APP-DEV/final_project/wanderlost/platforms/android/ant-build/classes/com/phonegap/wanderlost/BuildConfig.class \
+/Users/MTK/Code/UCSD-MOBILE-APP-DEV/final_project/wanderlost/platforms/android/ant-build/classes/com/phonegap/wanderlost/HelloWorld.class \
+/Users/MTK/Code/UCSD-MOBILE-APP-DEV/final_project/wanderlost/platforms/android/ant-build/classes/com/phonegap/wanderlost/R$attr.class \
+/Users/MTK/Code/UCSD-MOBILE-APP-DEV/final_project/wanderlost/platforms/android/ant-build/classes/com/phonegap/wanderlost/R$drawable.class \
+/Users/MTK/Code/UCSD-MOBILE-APP-DEV/final_project/wanderlost/platforms/android/ant-build/classes/com/phonegap/wanderlost/R$string.class \
+/Users/MTK/Code/UCSD-MOBILE-APP-DEV/final_project/wanderlost/platforms/android/ant-build/classes/com/phonegap/wanderlost/R$xml.class \
+/Users/MTK/Code/UCSD-MOBILE-APP-DEV/final_project/wanderlost/platforms/android/ant-build/classes/com/phonegap/wanderlost/R.class \
 /Users/MTK/Code/UCSD-MOBILE-APP-DEV/final_project/wanderlost/platforms/android/ant-build/classes/com/phonegap/wonderlost/BuildConfig.class \
 /Users/MTK/Code/UCSD-MOBILE-APP-DEV/final_project/wanderlost/platforms/android/ant-build/classes/com/phonegap/wonderlost/HelloWorld.class \
 /Users/MTK/Code/UCSD-MOBILE-APP-DEV/final_project/wanderlost/platforms/android/ant-build/classes/com/phonegap/wonderlost/R$attr.class \
@@ -13,4 +20,8 @@
 /Users/MTK/Code/UCSD-MOBILE-APP-DEV/final_project/wanderlost/platforms/android/ant-build/classes/com/phonegap/wonderlost/R$string.class \
 /Users/MTK/Code/UCSD-MOBILE-APP-DEV/final_project/wanderlost/platforms/android/ant-build/classes/com/phonegap/wonderlost/R$xml.class \
 /Users/MTK/Code/UCSD-MOBILE-APP-DEV/final_project/wanderlost/platforms/android/ant-build/classes/com/phonegap/wonderlost/R.class \
+/Users/MTK/Code/UCSD-MOBILE-APP-DEV/final_project/wanderlost/platforms/android/ant-build/classes/org/apache/cordova/devicemotion/AccelListener$1.class \
+/Users/MTK/Code/UCSD-MOBILE-APP-DEV/final_project/wanderlost/platforms/android/ant-build/classes/org/apache/cordova/devicemotion/AccelListener.class \
+/Users/MTK/Code/UCSD-MOBILE-APP-DEV/final_project/wanderlost/platforms/android/ant-build/classes/org/apache/cordova/deviceorientation/CompassListener$1.class \
+/Users/MTK/Code/UCSD-MOBILE-APP-DEV/final_project/wanderlost/platforms/android/ant-build/classes/org/apache/cordova/deviceorientation/CompassListener.class \
 /Users/MTK/Code/UCSD-MOBILE-APP-DEV/final_project/wanderlost/platforms/android/ant-build/dexedLibs/classes-98753fc1a01ffa44bb0fc4bb669ea649.jar \

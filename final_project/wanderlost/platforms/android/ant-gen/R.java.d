@@ -1,4 +1,4 @@
-/Users/MTK/Code/UCSD-MOBILE-APP-DEV/final_project/wanderlost/platforms/android/ant-gen/com/phonegap/wonderlost/R.java \
+/Users/MTK/Code/UCSD-MOBILE-APP-DEV/final_project/wanderlost/platforms/android/ant-gen/com/phonegap/wanderlost/R.java \
  : /Users/MTK/Code/UCSD-MOBILE-APP-DEV/final_project/wanderlost/platforms/android/res/drawable/icon.png \
 /Users/MTK/Code/UCSD-MOBILE-APP-DEV/final_project/wanderlost/platforms/android/res/drawable-hdpi/icon.png \
 /Users/MTK/Code/UCSD-MOBILE-APP-DEV/final_project/wanderlost/platforms/android/res/drawable-ldpi/icon.png \

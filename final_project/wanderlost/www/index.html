@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--
+    <!--
     Licensed to the Apache Software Foundation (ASF) under one
     or more contributor license agreements.  See the NOTICE file
     distributed with this work for additional information
@@ -16,29 +16,171 @@
      KIND, either express or implied.  See the License for the
     specific language governing permissions and limitations
     under the License.
--->
+    -->
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>WanderLost</title>
-    </head>
-    <body>
-<!--        <div class="app">
-            <h1>wanderLost</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <title>WanderLost</title>
+
+    <link href="css/codiqa.ext.css" rel="stylesheet">
+    <link href="css/jqm-neue.css" rel="stylesheet">
+    <link href="css/leaflet.css" rel="stylesheet">
+    <link href="css/wanderlost.css" rel="stylesheet">
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/jquery.mobile-1.3.2.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+
+    <script src="js/mustache.min.js"></script>
+    <script src="js/fastclick.min.js"></script>
+    <script src="phonegap.js"></script>
+    <script src="http://maps.google.com/maps/api/js?v=3.2&sensor=false"></script>
+    <script src="js/leaflet.js"></script>
+    <script src="js/leaflet-google.js"></script>
+    <script src="js/leaflet.polylineDecorator.min.js"></script>
+    <script src="js/latlon.js"></script>
+    <script src="js/wanderlost.js"></script>
+
+    <script>window.L_DISABLE_3D = true</script>
+
+</head>
+<body>  
+    <div id="deviceready">
+        <!-- 1st Page: Show current position and add markers -->
+        <div data-role="page" data-control-title="Mark" data-theme="d" id="page1" >
+            <div data-role="header" data-position="fixed" data-theme="a" >
+                <h3>WanderLost</h3>
+            </div>
+            <div data-role="content">
+                <!-- Map TODO change to different screen sizes-->
+                <div id="map"></div>
+                <!-- marker Button -->
+                <a id="set-marker" href="#create-marker" data-position-to="window" data-rel="popup" data-role="button" data-transition="pop">Drop Marker</a>
+            </div>
+            
+            <!-- Popup to Name and Save marker -->
+            <div data-role="popup" id="create-marker" data-theme="a" class="ui-corner-all" data-position-to="window">
+                <form id="popup">
+                    <div style="padding:10px 20px;">
+                        <h3>Create Marker</h3>
+                        <!-- <label for="marker-name" class="ui-hidden-accessible">Name:</label> -->
+                        <input type="text" name="mark" id="marker-name" value="" placeholder="Name.. (1+ characters)" minlength="1" data-theme="a">
+                        <a href="#page1"><button type="submit" id="marker-save" data-theme="b" data-rel="back" data-icon="check">Save</button></a>
+                    </div>
+                </form>
+            </div>
+
+<script>
+// TODO: validation not working
+     var validator = $('#popup').validate({
+        rules: {
+            name: {
+                required: true,
+                minlength: 1
+            }
+        }
+     });
+    // validator.element("#marker-name");
+</script>
+            <div data-role="tabbar" data-iconpos="top" data-theme="a">
+                <ul>
+                    <li>
+                        <a href="#page1" data-transition="fade" data-theme="" data-icon="edit">Mark</a>
+                    </li>
+                    <li>
+                        <a href="#page2" data-transition="fade" data-theme="" data-icon="bars">List</a>
+                    </li>
+                    <li>
+                        <a href="#page3" data-transition="fade" data-theme="" data-icon="arrow-u">Guide</a>
+                    </li>
+
+                </ul>
             </div>
         </div>
-        <script type="text/javascript" src="phonegap.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript">
-            app.initialize();
-        </script>
-        -->
-    </body>
+
+        <div data-role="page" data-control-title="List" data-theme="d" id="page2">
+            <div data-theme="a" data-role="header" data-position="fixed">
+                <h3>WanderLost</h3>
+            </div>
+            <div data-role="content" id="marker-list">
+                <ul data-role="listview" data-divider-theme="a" data-inset="true"  id="marker-list">
+                </ul>
+            </div>
+
+<!--         <div data-role="dialog" id="marker-options" data-theme="a" class="ui-corner-all" data-position-to="window">
+                <div style="padding:10px 20px;">
+                    <h3>Marker Options</h3>
+                    <a href="#page3"><button type="submit" id="marker-guide" data-theme="b" data-rel="back" data-icon="check">Guide</button></a>
+                    <a href="#page2"><button type="submit" id="marker-delete" data-theme="b" data-rel="back" data-icon="check">Delete</button></a>
+                </div>
+        </div> -->
+
+            <div data-role="tabbar" data-iconpos="top" data-theme="a">
+                <ul>
+                    <li>
+                        <a href="#page1" data-transition="fade" data-theme="" data-icon="edit">Mark</a>
+                    </li>
+                    <li>
+                        <a href="#page2" data-transition="fade" data-theme="" data-icon="bars">List</a>
+                    </li>
+                    <li>
+                        <a href="#page3" data-transition="fade" data-theme="" data-icon="arrow-u">Guide</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+        <div data-role="page" data-control-title="Guide" data-theme="d" id="page3">
+            <div data-theme="a" data-role="header" data-position="fixed">
+                <h3>WanderLost</h3>
+            </div>
+            <div data-role="content">
+                <!-- compass needle -->
+                <div style="text-align:center" data-controltype="image">
+                    <img id="needle" src="img/needle.png">
+                </div>
+                <div data-controltype="textblock">
+                    <p style="text-align: center;" data-mce-style="text-align: center;">
+                        <span style="font-size: xx-large;" data-mce-style="font-size: xx-large;">
+                            <b>
+                                <span id="_mce_caret" data-mce-bogus="1">
+                                    <span data-mce-bogus="1">                ﻿
+                                    </span>
+                                </span>
+                                <!-- Distance to mark is added here -->
+                            </b>
+                        </span>
+                    </p>
+                </div>
+
+                <a data-role="button" data-theme="f" id="stop-guiding" href="#page2">Stop Guiding</a>
+
+            </div>
+
+            <div data-role="tabbar" data-iconpos="top" data-theme="a">
+                <ul>
+                    <li>
+                        <a href="#page1" data-transition="fade" data-theme="" data-icon="edit">Mark</a>
+                    </li>
+                    <li>
+                        <a href="#page2" data-transition="fade" data-theme="" data-icon="bars">List</a>
+                    </li>
+                    <li>
+                        <a href="#page3" data-transition="fade" data-theme="" data-icon="arrow-u">Guide</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <script type="text/javascript">
+        FastClick.attach(document.body);
+        app.initialize();
+    </script>    
+</body>
 </html>

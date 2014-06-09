@@ -1,10 +1,16 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.phonegap.wonderlost" version="1.0.0" versionCode="" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.phonegap.wanderlost" version="1.0.0" versionCode="" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <preference name="loglevel" value="DEBUG" />
     <feature name="App">
         <param name="android-package" value="org.apache.cordova.App" />
     </feature>
-    <name>WonderLost</name>
+    <feature name="Compass">
+        <param name="android-package" value="org.apache.cordova.deviceorientation.CompassListener" />
+    </feature>
+    <feature name="Accelerometer">
+        <param name="android-package" value="org.apache.cordova.devicemotion.AccelListener" />
+    </feature>
+    <name>WanderLost</name>
     <description>Get lost, find your way back		</description>
     <author email="matt@korp.me" href="">Matthew Korporaal		</author>
     <preference name="phonegap-version" value="3.4.0" />
@@ -62,5 +68,5 @@
     <gap:splash gap:platform="ios" height="960" src="res/screen/ios/ios640x960.png" width="640" />
     <gap:splash gap:platform="ios" height="1024" src="res/screen/ios/ios1536x2304.png" width="768" />
     <gap:splash gap:platform="ios" height="768" src="res/screen/ios/ios1536x2304.png" width="1024" />
-    <access origin="http://127.0.0.1*" />
+    <access origin="*" />
 </widget>

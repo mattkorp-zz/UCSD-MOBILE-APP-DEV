@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--
+    <!--
     Licensed to the Apache Software Foundation (ASF) under one
     or more contributor license agreements.  See the NOTICE file
     distributed with this work for additional information
@@ -16,28 +16,154 @@
      KIND, either express or implied.  See the License for the
     specific language governing permissions and limitations
     under the License.
--->
+    -->
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>Hello World</title>
-    </head>
-    <body>
-        <div class="app">
-            <h1>PhoneGap</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <title>WanderLost</title>
+
+    <link href="css/codiqa.ext.css" rel="stylesheet">
+    <link href="css/jqm-neue.css" rel="stylesheet">
+    <link href="css/leaflet.css" rel="stylesheet">
+    <link href="css/wanderlost.css" rel="stylesheet">
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/jquery.mobile-1.3.2.min.js"></script>
+    <script src="js/mustache.min.js"></script>
+    <script src="js/fastclick.min.js"></script>
+    <script src="phonegap.js"></script>
+    <script>window.L_DISABLE_3D</script>
+    <script src="js/leaflet.js"></script>
+    <script src="js/latlon.js"></script>
+    <script src="js/index.js"></script>
+
+</head>
+<body>  
+    <div id="deviceready">
+        <!-- 1st Page: Show current position and add waypoints -->
+        <div data-role="page" data-control-title="Mark" data-theme="d" id="page1" >
+            <div data-role="header" data-position="fixed" data-theme="a" >
+                <h3>WanderLost</h3>
+            </div>
+            <div data-role="content">
+                <!-- Map TODO change to different screen sizes-->
+                <div id="map" style="width: 100%; height: 387px; margin-left: auto; margin-right: auto"></div>
+                <!-- Waypoint Button -->
+                <a id="set-waypoint" href="#createMarker" data-position-to="window" data-rel="popup" data-role="button" data-transition="pop">Drop Marker</a>          
+            </div>
+            
+            <!-- Popup to Name and Save waypoint -->
+            <div data-role="popup" id="createMarker" data-theme="a" class="ui-corner-all" data-position-to="window">
+                <form>
+                    <div style="padding:10px 20px;">
+                        <h3>Create Marker</h3>
+                        <!-- <label for="marker-name" class="ui-hidden-accessible">Name:</label> -->
+                        <input type="text" name="mark" id="marker-name" value="" placeholder="Name.." data-theme="a">
+                        <a href="#page1"><button type="submit" id="marker-save" data-theme="b" data-rel="back" data-icon="check">Save</button></a>
+                    </div>
+                </form>
+            </div>
+            <div data-role="tabbar" data-iconpos="top" data-theme="a">
+                <ul>
+                    <li>
+                        <a href="#page1" data-transition="fade" data-theme="" data-icon="edit">Mark</a>
+                    </li>
+                    <li>
+                        <a href="#page2" data-transition="fade" data-theme="" data-icon="bars">List</a>
+                    </li>
+                    <li>
+                        <a href="#page3" data-transition="fade" data-theme="" data-icon="arrow-u">Guide</a>
+                    </li>
+
+                </ul>
             </div>
         </div>
-        <script type="text/javascript" src="phonegap.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript">
-            app.initialize();
-        </script>
-    </body>
+
+        <div data-role="page" data-control-title="List" data-theme="d" id="page2">
+            <div data-theme="a" data-role="header" data-position="fixed">
+                <h3>WanderLost</h3>
+            </div>
+            <div data-role="content" id="waypoint-list">
+                <ul data-role="listview" data-divider-theme="a" data-inset="true" id="waypoint-list">
+                </ul>
+            </div>
+            <div data-role="tabbar" data-iconpos="top" data-theme="a">
+                <ul>
+                    <li>
+                        <a href="#page1" data-transition="fade" data-theme="" data-icon="edit">Mark</a>
+                    </li>
+                    <li>
+                        <a href="#page2" data-transition="fade" data-theme="" data-icon="bars">List</a>
+                    </li>
+                    <li>
+                        <a href="#page3" data-transition="fade" data-theme="" data-icon="arrow-u">Guide</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+        <div data-role="page" data-control-title="Guide" data-theme="d" id="page3">
+            <div data-theme="a" data-role="header" data-position="fixed">
+                <h3>WanderLost</h3>
+            </div>
+            <div data-role="content">
+                <div style="text-align:center" data-controltype="image">
+                    <img id="needle" style="width: 288px; height: 322px;" src="img/needle.png">
+                </div>
+                <div data-controltype="textblock">
+                    <p style="text-align: center;" data-mce-style="text-align: center;">
+                        <span style="font-size: xx-large;" data-mce-style="font-size: xx-large;">
+                            <b>
+                                <span id="_mce_caret" data-mce-bogus="1">
+                                    <span data-mce-bogus="1">                ﻿
+                                    </span>
+                                </span>
+                                55 meters
+                            </b>
+                        </span>
+                    </p>
+                </div>
+
+                <a data-role="button" data-theme="f" href="#page2">Stop Guiding</a>
+
+            </div>
+
+            <div data-role="tabbar" data-iconpos="top" data-theme="a">
+                <ul>
+                    <li>
+                        <a href="#page1" data-transition="fade" data-theme="" data-icon="edit">Mark</a>
+                    </li>
+                    <li>
+                        <a href="#page2" data-transition="fade" data-theme="" data-icon="bars">List</a>
+                    </li>
+                    <li>
+                        <a href="#page3" data-transition="fade" data-theme="" data-icon="arrow-u">Guide</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+            <!--        <div class="app">
+                    <h1>wanderLost</h1>
+                    <div id="deviceready" class="blink">
+                        <p class="event listening">Connecting to Device</p>
+                        <p class="event received">Device is Ready</p>
+                    </div>
+                </div>
+                <script type="text/javascript" src="phonegap.js"></script>
+                <script type="text/javascript" src="js/index.js"></script>
+                <script type="text/javascript">
+                    app.initialize();
+                </script>
+            -->
+    </div>
+    <script type="text/javascript">
+    // add fastclick TODO
+        app.initialize();
+    </script>    
+</body>
 </html>

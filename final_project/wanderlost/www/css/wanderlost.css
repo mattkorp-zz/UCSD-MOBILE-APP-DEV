@@ -1,0 +1,32 @@
+.leaflet-map-pane {
+    z-index: 2 !important;
+}
+
+.leaflet-google-layer {
+    z-index: 1 !important;
+}
+
+#map {
+	width: 320px; 
+	height: 387px; 
+	margin-left: auto; 
+	margin-right: auto;
+}
+#needle {
+	width: 288px; 
+	height: 322px; 
+	transition:0.5s ease-in;
+}
+
+@font-face {
+  font-family: 'fontHeader';
+  src: url('../font/lostbattalion.ttf') format('truetype');
+}
+
+h3, span, li {
+	font-family: 'fontHeader' !important;
+}
+
+#create-marker {
+	top: -100px;
+}
